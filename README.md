@@ -1,14 +1,13 @@
 # Fresh DeskPro
 
-Full-stack Freshdesk app built with:
-- Node.js (Express)
-- TypeScript
-- Vite
-- Tailwind
-- Drizzle ORM
+Full-stack Freshdesk app.
 
 ## Development
 
-```bash
 npm install
 npm run dev
+
+## Build & Run
+
+npm run build
+npm start
