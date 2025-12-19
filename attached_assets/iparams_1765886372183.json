@@ -1,0 +1,118 @@
+{
+    "freshdesk_domain": {
+      "display_name": "Domain Name",
+      "description": "Enter your Freshdesk domain",
+      "type": "domain",
+      "type_attributes": {
+        "product": "freshdesk"
+      },
+      "required": true
+    },
+    "freshdesk_api_key": {
+      "display_name": "API Key",
+      "description": "Enter your Freshdesk API key",
+      "type": "api_key",
+      "secure": true,
+      "required": true,
+      "type_attributes": {
+        "product": "freshdesk"
+      }
+    },
+    "freshsales_domain": {
+      "display_name": "Freshsales Domain",
+      "description": "Enter your Freshsales domain",
+      "type": "text",
+      "required": true
+    },
+    "freshsales_api_key": {
+      "display_name": "Freshsales API Key",
+      "description": "Enter your Freshsales API key",
+      "type": "text",
+      "secure": true,
+      "required": true
+    },
+    "sundirect_domain": {
+      "display_name": "Sundirect Domain",
+      "description": "Enter your Sundirect domain",
+      "type": "text",
+      "required": true
+    },
+    "token_url": {
+      "display_name": "Sundirect Token Endpoint",
+      "description": "Enter the API endpoint for getting Token",
+      "type": "text",
+      "required": true
+    },
+    "token_username": {
+      "display_name": "Sundirect Username",
+      "description": "Enter your Sundirect username",
+      "type": "text",
+      "required": true,
+      "secure": true
+    },
+    "token_password": {
+      "display_name": "Sundirect Password",
+      "description": "Enter your Sundirect password",
+      "type": "text",
+      "required": true,
+      "secure": true
+    },
+    "token_authkey": {
+      "display_name": "Sundirect Authkey",
+      "description": "Enter your Sundirect authkey",
+      "type": "text",
+      "required": true,
+      "secure": true
+    },
+    "sap_url": {
+      "display_name": "SAP URL",
+      "description": "Enter your SAP URL",
+      "type": "text",
+      "required": true
+    },
+    "dc_status_field": {
+      "display_name": "DC Status Field Name",
+      "description": "Enter the DC Status Field Name to update",
+      "type": "text",
+      "required": true
+    },
+    "sapStatuses":{
+        "display_name":"Status values to trigger SAP API",
+        "description": "Status values to trigger SAP API separated by comma.",
+        "type": "text",
+        "required": true
+      },
+    "emailStatuses":{
+        "display_name":"Status values to trigger email",
+        "description": "Status values to trigger email separated by comma.",
+        "type": "text",
+        "required": true
+      },
+    "sundirect_mail_endpoint": {
+      "display_name": "Sundirect Mail API endpoint",
+      "description": "Enter your Sundirect Mail API endpoint",
+      "type": "text",
+      "required": true
+    },
+    "notify_mail": {
+      "display_name": "Email Addresses",
+      "description": "Enter the Email Addresses separated by comma",
+      "type": "paragraph",
+      "required": true
+    },
+    "dc_address_customObjectId":{
+      "display_name": "DC Address Custom Object Id",
+      "type": "text",
+      "required": true
+    },
+    "assets_customObjectId":{
+      "display_name": "Assets Custom Object Id",
+      "type": "text",
+      "required": true
+    },
+    "assets_max_select_limit":{
+      "display_name": "Maximum Asset Selection Limit",
+      "type": "number",
+      "required": true
+    }
+  }

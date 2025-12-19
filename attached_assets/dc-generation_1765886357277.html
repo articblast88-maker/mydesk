@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>DC Generation App</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Crayons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/css/crayons-min.css">
+  <!-- Crayons JavaScript -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.js"></script>
+  <script async src="https://cdn.freshdev.io/assets/app-client@2.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+
+<body>
+  <div class="main">
+    <fw-spinner size="medium" color="green" class="loader" id="loader"></fw-spinner>
+    <fw-label color="green" id="progress" class="hide"></fw-label>
+    <fw-button id="proceedToDc-btn" style="display:none">Proceed to DC </fw-button>
+    <div id="dcDetails">
+      <table class="dc-info-table" style="width: 100%; table-layout: fixed;">
+        <tr>
+          <td class="dc-info-label">DC Number:</td>
+          <td class="dc-info-value" id="dcNum"></td>
+        </tr>
+        <tr>
+          <td class="dc-info-label">DC Status:</td>
+          <td class="dc-info-value" id="dcStatus"></td>
+        </tr>
+        <tr>
+          <td class="dc-info-label">DT Code:</td>
+          <td class="dc-info-value" id="dtCode"></td>
+        </tr>
+        <tr>
+          <td class="dc-info-label">DC Created:</td>
+          <td class="dc-info-value" id="dcCreated"></td>
+        </tr>
+        <tr>
+          <td class="dc-info-label">DC Submitted:</td>
+          <td class="dc-info-value" id="dcSubmitted"></td>
+        </tr>
+      </table>
+      <fw-button id="dcAssetsView-btn"> View Details </fw-button>
+    </div>
+    <div id="warning"></div>
+    <fw-label color="red" id="warningLabel" class="hide"></fw-label>
+  </div>
+</body>
+
+<script defer src="scripts/dc-generation.js"></script>
+<script async type="module" src="https://unpkg.com/@freshworks/crayons@3/dist/crayons/crayons.esm.js"></script>
+<script async nomodule src="https://unpkg.com/@freshworks/crayons@3/dist/crayons/crayons.js"></script>
+
+</html>

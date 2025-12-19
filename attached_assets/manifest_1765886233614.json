@@ -1,0 +1,44 @@
+{
+  "platform-version": "2.3",
+  "product": {
+    "freshdesk": {
+      "location": {
+        "ticket_sidebar": {
+          "url": "dc-generation.html",
+          "icon": "styles/images/receipt.svg"
+        }
+      },
+      "events": {
+        "onTicketUpdate": {
+          "handler": "onTicketUpdateHandler"
+        }
+      },
+      "requests": {
+        "getDtcode": {},
+        "fetchAssets": {},
+        "updateAssets": {},
+        "updateTicket": {},
+        "getFields": {},
+        "getToken": {},
+        "sendEmail": {},
+        "updateAssetDetails": {},
+        "filterCustomObject": {},
+        "filterAssetCustomObject":{},
+        "updateAssetCustomObject":{},
+        "filteredSearchAssets": {}
+      },
+      "functions": {
+        "generateSequenceNumber": {},
+        "initiateDC": {},
+        "getEmailContent": {}
+      }
+    }
+  },
+  "engines": {
+    "node": "18.14.2",
+    "fdk": "9.1.0"
+  },
+  "dependencies": {
+    "moment-timezone": "0.5.45"
+  }
+}
