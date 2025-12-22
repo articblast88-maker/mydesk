@@ -85,6 +85,19 @@ Preferred communication style: Simple, everyday language.
   - Uses stable field IDs for persistence, type-aware value inputs (dropdowns, checkboxes, date pickers)
 - **Reports Dashboard**: Real database queries for ticket volume, resolution times, category distribution, agent performance
 - **Ticket Relationships**: Batch-fetch pattern using inArray for customer and assignee data in ticket lists
+- **Group-Based Ticket Visibility (Dec 2025)**: Agents with 'group' ticketScope only see tickets in their groups or assigned to them:
+  - Database-level SQL filtering for 90M+ ticket scalability
+  - POST /api/tickets/query endpoint with full SQL-level filtering, pagination, sorting
+  - Uses `or(inArray(tickets.groupId, agentGroupIds), eq(tickets.assigneeId, agentId))` WHERE clauses
+  - Filter builder UI supports all ticket fields, custom fields, and multiple operators
+  - Saved views functionality for filter configurations
+  - CSV export endpoint with configurable field selection
+- **Automation Editing UI (Dec 2025)**: Full CRUD for automation rules:
+  - Edit existing rules via sheet modal with form population
+  - Dynamic UI shows "Edit Rule" vs "Create Rule" based on mode
+  - Groups added to automation conditions (is/is_not/is_set/is_not_set operators) and actions (set_group)
+  - Backend executeAutomationRules handles set_group action and field mapping (group → groupId)
+  - Added is_set/is_not_set operators to condition evaluation
 
 ### New API Endpoints
 - `/api/portal/signup` - Customer self-registration with password hashing
@@ -131,9 +144,40 @@ shared/           # Shared code between client/server
 - **Component Library**: Consistent UI through shadcn/ui with custom theming
 - **Dark/Light Mode**: Theme provider with system preference detection
 
+### API Authentication (Dec 2025)
+API keys enable secure programmatic access to the HelpDesk API.
+
+**Creating an API Key:**
+```bash
+POST /api/api-keys
+{
+  "name": "My Integration Key",
+  "userId": "<agent-user-id>",
+  "scopes": ["tickets:read", "tickets:write", "users:read"]
+}
+```
+Returns the API key ONCE - store it securely as it cannot be retrieved again.
+
+**Using an API Key:**
+Include in request headers:
+- `Authorization: Bearer hd_your_api_key_here`
+- OR `Authorization: ApiKey hd_your_api_key_here`  
+- OR `X-Api-Key: hd_your_api_key_here`
+
+**Available Scopes:**
+- `tickets:read`, `tickets:write` - Ticket CRUD operations
+- `users:read`, `users:write` - User/contact management
+- `kb:read`, `kb:write` - Knowledge base access
+- `admin:*` - Full administrative access
+
+**API Key Management Endpoints:**
+- `GET /api/api-keys?userId=<id>` - List user's API keys
+- `POST /api/api-keys` - Create new API key
+- `DELETE /api/api-keys/:id` - Revoke an API key
+
 ### API Documentation
 - **Full API Reference**: See `API_DOCUMENTATION.md` for complete Freshdesk-style API documentation
-- **Authentication**: API key-based with `Authorization: ApiKey <token>` or `X-Api-Key` header
+- **Authentication**: API key-based with `Authorization: Bearer <token>` or `X-Api-Key` header
 - **Base URL**: `https://your-domain.replit.app/api` (production) or `https://your-domain.replit.dev/api` (development)
 
 ## External Dependencies
